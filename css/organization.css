@@ -1,0 +1,297 @@
+.l-box,
+.l-codeBox {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -175px;
+  margin-top: -231px;
+  width: 350px;
+  height: 450px;
+  background: #ffffff;
+  box-shadow: 0px 14px 20px 0px rgba(0, 0, 0, 0.12),
+    0px 0px 7px 0px rgba(0, 0, 0, 0.11);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  z-index: 999;
+}
+
+.l-box .l-close,
+.l-codeBox .l-close {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  /* left: 4px; */
+  right: 10px;
+  top: 10px;
+  padding: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.l-box .l-close img,
+.l-codeBox .l-close img {
+  width: 100%;
+}
+
+.l-box .l-rqcode,
+.l-codeBox .l-rqcode {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  right: 3px;
+  top: 3px;
+}
+
+.l-box .l-rqcode img,
+.l-codeBox .l-rqcode img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.l-box .l-rqcode .rq-tips,
+.l-codeBox .l-rqcode .rq-tips {
+  position: absolute;
+  width: 71px;
+  height: 27px;
+  background-image: url("../imgs/login-letter-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  left: -68px;
+  top: 8px;
+  font:menu;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+  color: #fff;
+  text-align: center;
+  line-height: 26px;
+}
+
+.l-switch {
+  width: 262px;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 53px;
+
+}
+
+.l-switch span {
+  font:menu;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+  font-weight: 400;
+  line-height: 22px;
+  display: inline-block;
+}
+.l-switch .green{
+  width: 32px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #cccccc;
+  position: relative;
+
+}
+.l-switch .green.blue{
+  background-color:#3D97FC;
+}
+.l-switch .green .circle{
+  width: 18px;
+  height: 18px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.13), 0px 3px 5px 0px rgba(0, 0, 0, 0.15);
+  border: 1px solid #E5E5E5;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  transition: 0.2s;
+}
+.l-switch .green .toggle{
+  transition: 0.2s;
+  left: 12px;
+}
+
+.l-user,
+.l-password {
+  width: 262px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.l-user input,
+.l-password input {
+  width: 262px;
+  height: 36px;
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  outline: none;
+  padding: 10px 11px 10px 34px;
+  box-sizing: border-box;
+  line-height: 36px;
+  font:menu;
+  font-size: 13px;
+  font-weight: 400;
+  color: #333;
+}
+
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #999999;
+
+}
+
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999999;
+
+}
+
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999999;
+
+}
+
+input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #999999;
+}
+
+.l-user {
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+.l-user::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-image: url("../imgs/signin_user@2x.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 11px;
+  top: 10px;
+}
+
+.l-password {
+  margin-bottom: 38px;
+}
+
+.l-password::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-image: url("../imgs/signin_password@2x.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 11px;
+  top: 10px;
+}
+
+
+.l-btn {
+  width: 262px;
+  margin: 0 auto;
+}
+
+.l-btn input {
+  width: 262px;
+  height: 32px;
+  background: #3d97fc;
+  border-radius: 16px;
+  line-height: 32px;
+  text-align: center;
+  outline: none;
+  border: none;
+  font:menu;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+  color: #fff;
+  cursor: pointer;
+}
+
+.c-title {
+  font:menu;
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+  width: 98px;
+  line-height: 33px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.c-down {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.c-down img {
+  width: 100%;
+}
+
+.c-down .c-tips {
+  width: 142px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.c-down .c-tips p {
+  line-height: 23px;
+  font: menu;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1A1A1A;
+  ;
+  width: 142px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.c-down .c-tips p span {
+  color: #1C7FEE;
+  cursor: pointer;
+}
+
+.mg20 {
+  margin-bottom: 20px;
+}
+
+/* 添加的点击刷新部分 */
+.c-down-po{
+  position: relative;
+}
+.c-down-shadow{
+  width: 200px;
+  height: 200px;
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+.c-down .c-down-shadow .c-down-shadow-img{
+  width: 28px;
+  height: 28px;
+  margin-top: 47px;
+  cursor: pointer;
+
+}
+.c-down-shadow .c-down-shadow-p{
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 6px;
+}
+

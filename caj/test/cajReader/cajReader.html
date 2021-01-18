@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/zTreeStyle/zTreeStyle.css"/>
+		<link rel="stylesheet" type="text/css" href="css/nouislider.css"/>
+		<link rel="stylesheet" type="text/css" href="css/cajReader.css"/>
+		<title>CAJ阅读</title>
+	</head>
+	<body>
+		<div class="entire">
+			<div class="read-til">农业机械投入对化肥减量化的作用研究</div>
+			<div class="one-level">
+				<div class="one-left">
+					<div class="one-left-btn"></div>
+					<!--目录-->
+					<div class="directory-module">
+						<div class="directory-top">目录</div>
+						<div class="ztree" id="treeDemo"></div>
+					</div>
+				</div>
+				<div class="one-right">
+					<div class="one-right-btn"></div>
+					<!--标注-->
+					<div class="marking-moudle" >
+						<div class="marking-top">标注</div>
+						<div class="button-line">
+							<div class="marking-number">共7条</div>
+							<div class="order-select">
+								<span class="selected">按段落</span>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<span>按时间</span>
+							</div>
+						</div>
+						<!--标注列表-->
+						<ul class="marking-list">
+							<li class="marking-item">
+								<div class="marking-item-sub">
+									<!--标记信息-->
+									<div class="marking-mesg">
+										<p class="mesg">
+											下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字文字文字下划线标记的文字，下划线标记的文下划线标
+										</p>
+
+										<span class="flag"></span>
+									</div>
+									<!--<div class="text-box"> <textarea></textarea> </div>-->
+									
+									<!--原文-->
+									<div class="original">
+										原文内容，原文内容，原文内容，原文内容，原文内容，原文内容，原文内容，原文内容，原文内容
+									</div>
+									<div class="marking-oprate">
+										<div class="marking-date">2020年8月20日</div>
+										<div class="oprate-list">
+											<div class="marking-oprate-edit"></div>
+											<div class="marking-oprate-delete"></div>
+										</div>
+									</div>
+								</div>
+								<!--<div class="mesg-alert">
+									<div class="mesg-alert-sub">
+										<div class="mesg-alert-sj"></div>
+										<div class="mesg-alert-txt"></div>
+									</div>
+								</div>-->
+							</li>
+							<li class="marking-item">
+								<div class="marking-item-sub">
+									<!--标记信息-->
+									<div class="marking-mesg">
+										<p class="mesg">
+											下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字，下划线标记的文字文字文字下划线标记的文字，下划线标记的文下划线标
+										</p>
+
+										<span class="flag"></span>
+									</div>
+									<!--<div class="text-box"> <textarea></textarea> </div>-->
+									
+									<!--原文-->
+									<div class="original">
+										原文内容，原文内容，原文内容，原文内容，原文内容，原文内容，原文内容，原文内容，原文内容
+									</div>
+									<div class="marking-oprate">
+										<div class="marking-date">2020年8月20日</div>
+										<div class="oprate-list">
+											<div class="marking-oprate-edit"></div>
+											<div class="marking-oprate-delete"></div>
+										</div>
+									</div>
+								</div>
+								<!--<div class="mesg-alert">
+									<div class="mesg-alert-sub">
+										<div class="mesg-alert-sj"></div>
+										<div class="mesg-alert-txt"></div>
+									</div>
+								</div>-->
+							</li>							<!--标注内容为空的时候显示-->
+							<div class="empty-tip-block">
+								<div class="empty-pic marking-empty-pic"></div>
+								<div class="empty-tip">暂无标注，快去添加标注吧</div>
+							</div>
+						</ul>
+						
+					</div>
+				</div>
+				<div class="center-content">
+					<div class="top-function" id="top-function">
+						<div class="top-function-line">
+							<div class="left-area">
+								<div class="size-btn-item ">
+									<div class="size-down-btn"></div>
+									<div class="size-number-box">
+										<div class="size-number"><input type="text" name="" id="sizeInput" value="190%" /></div>
+										<div class="number-select-btn"></div>
+									</div>
+									<div class="size-up-btn"></div>
+									<div class="size-number-select hide">
+										<div class="select-tip">
+											缩放
+										</div>
+										<ul class="select-number">
+											<li class="select-number-item number-selected">400%</li>
+											<li class="select-number-item">300%</li>
+											<li class="select-number-item">200%</li>
+											<li class="select-number-item">150%</li>
+											<li class="select-number-item">125%</li>
+											<li class="select-number-item">100%</li>
+											<li class="select-number-item">75%</li>
+											<li class="select-number-item">50%</li>
+											<li class="select-number-item">25%</li>
+											<li class="select-number-item">实际大小</li>
+											<li class="select-number-item">适应宽度</li>
+											<li class="select-number-item">适应高度</li>
+										</ul>
+									</div>
+									
+								</div>
+								<div class="left-btn-item" id="print">
+									<div class="print-btn"></div>
+								</div>
+								<div class="left-btn-item" id="searchControl">
+									<div class="search-btn-icon"></div>
+								</div>
+
+							</div>
+							<div class="center-progress">
+								<div class="progress-left-arrow"></div>
+								<div class="progress-number">
+									<div class="page-input"><input type="text" name="" id="" value="21" /></div><div class="page-count">&nbsp;/&nbsp;<span>25</span></div>
+								</div>
+								<div class="progress-right-arrow"></div>
+							</div>
+							<div class="right-area">
+								<div class="right-btn-item">
+									<div class="exchange-btn">交流区（20）</div>
+								</div>
+								
+								<div class="right-btn-item ">
+									<div class="add-mark-btn"></div>
+								</div>
+								<div class="right-btn-item full">
+									<div class="split-screen-btn"></div>
+								</div>
+							</div>
+							<div class="fixed-btn"></div>
+						</div>
+						<div class="mouse-area"></div>
+						
+					</div>
+					<!--搜索模块-->
+					<div class="search-moudle search-hide">
+						<div class="search-box">
+							<div class="input-box">
+								<input type="text" name="" id="" value="" />
+							</div>
+							<div class="search-btn"></div>
+						</div>
+						<div class="search-result">
+							<ul class="search-list">
+								<li class="search-item">
+									<label class="search-word">搜索词汇</label>线标记的文字，下划线标记的文字，政治经备份 线标记的文字，下划线标记的文字，政治经备份 
+								</li>
+								<li class="search-item">
+									<label class="search-word">搜索词汇</label>线标记的文字，下划线标记的文字，政治经备份 线标记的文字，下划线标记的文字，政治经备份 
+								</li>
+								<li class="search-item">
+									<label class="search-word">搜索词汇</label>线标记的文字，下划线标记的文字，政治经备份 线标记的文字，下划线标记的文字，政治经备份 
+								</li>
+								<li class="search-item">
+									<label class="search-word">搜索词汇</label>线标记的文字，下划线标记的文字，政治经备份 线标记的文字，下划线标记的文字，政治经备份 
+								</li>
+							</ul>
+						</div>
+						<!--标注为空时候的页面显示-->
+						<div class="empty-tip-block">
+							<div class="empty-pic search-empty-pic"></div>
+							<div class="empty-tip">没有找到相关内容，换个词试试吧</div>
+						</div>
+					</div>
+					<!--交流区-->
+					<div class="exchange-block exchange-hide" >
+						<ul class="exchnge-menu">
+							<li class="exchage-menu-item selected">问答</li>
+							<li class="exchage-menu-item">批注</li>
+							<span class="slider"></span>
+						</ul>
+						<!--问答内容-->
+						<div class="QA-content" >
+							<ul class="QA-ul">
+								<li class="QA-item">
+									<div class="answer-user">
+										<div class="answer-head"></div>
+										<div class="answer-name">123456</div>
+									</div>
+									<div class="answer-content">
+										用户批注的内容，针对文章某一段落、某些文,
+										用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,
+									</div>
+									<div class="from-question">
+										<span class="to-user">雨燕江南~：</span>老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期
+									</div>
+									<div class="answer-other">
+										<div class="answer-data">2019-10-10</div>
+										<div class="number-area">
+											<div class="like-number ">34</div>
+											<div class="answer-number ">34</div>
+										</div>
+									
+									</div>
+								</li>
+								<li class="QA-item">
+									<div class="answer-user">
+										<div class="answer-head"></div>
+										<div class="answer-name">123456</div>
+									</div>
+									<div class="answer-content">
+										用户批注的内容，针对文章某一段落、某些文,
+										用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,
+									</div>
+									<div class="from-question">
+										<span class="to-user">雨燕江南~：</span>老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期
+									</div>
+									<div class="answer-other">
+										<div class="answer-data">2019-10-10</div>
+										<div class="number-area">
+											<div class="like-number liked">34</div>
+											<div class="answer-number ">34</div>
+										</div>
+									
+									</div>
+								</li>
+							</ul>
+							<div class="empty-tip-block">
+								<div class="empty-pic"></div>
+								<div class="empty-tip">快来发表一个问答吧</div>
+							</div>
+						</div>
+						<!--批注-->
+						<div class="annotations-content hide" >
+							<ul class="annotation-ul">
+								<li class="annotation-li">
+									<div class="user-mesg">
+										<div class="head"></div>
+										<div class="name">列金365</div>
+									</div>
+									<div class="annotation">
+										用户批注的内容，针对文章某一段落、某些文,
+										用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,
+									</div>
+									<div class="annotation-origin">
+										老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期
+									</div>
+									<div class="other">
+										<div class="data">2019-10-10</div>
+										<div class="annotation-other-right">
+											<!--当时自己的批注的时候显示刪除-->
+											<div class="del" style="display: block;">删除</div>
+											<div class="praise-number praised">34</div>
+										</div>
+									</div>
+								</li>
+								<li class="annotation-li">
+									<div class="user-mesg">
+										<div class="head"></div>
+										<div class="name">列金365</div>
+									</div>
+									<div class="annotation">
+										用户批注的内容，针对文章某一段落、某些文,
+										用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,用户批注的内容，针对文章某一段落、某些文,
+									</div>
+									<div class="annotation-origin">
+										老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期老艺术期刊封面中的现代主义风格，老艺术期
+									</div>
+									<div class="other">
+										<div class="data">2019-10-10</div>
+										<div class="annotation-other-right">
+											<!--当时自己的批注的时候显示刪除-->
+											<div class="del" style="display: block;">删除</div>
+											<div class="praise-number praised">34</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<div class="empty-tip-block">
+								<div class="empty-pic"></div>
+								<div class="empty-tip">暂无批注，快去添加批注吧</div>
+							</div>
+						</div>
+					</div>
+					<div class="menu-tool">
+						<ul class="tool-list">
+							<li class="tool-item"></li>
+							<li class="tool-item"></li>
+							<li class="tool-item"></li>
+							<li class="tool-item"></li>
+							<li class="tool-item"></li>
+							<li class="tool-item"></li>
+							<li class="tool-item"></li>
+							<div class="line-size hide">
+								<div class="line-color-content">
+									<div class="line-color-sj"></div>
+									<ul class="line-list">
+										<li class="line-size-item sel" data-size="3"></li>
+										<li class="line-size-item" data-size="5"></li>
+										<li class="line-size-item" data-size="7"></li>
+									</ul>
+									<div class="line-color-btn"><div class="color-sel" style="background:#6DA3FF;"></div></div>
+									<ul class="line-color-list hide">
+										<li class="line-color-item sel" data-color="#6DA3FF"></li>
+										<li class="line-color-item" data-color="#AA83FF"></li>
+										<li class="line-color-item" data-color="#FFEB85"></li>
+										<li class="line-color-item" data-color="#FF5E77"></li>
+										<li class="line-color-item" data-color="#8EFFFA"></li>
+									</ul>
+								</div>
+							</div>
+						</ul>
+					</div>
+					<div class="content-box" >
+						<div class="content-sub" >
+							<div class="conten-txt" id="contentArea">
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+								对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略对中国国土开发空间布局的影响一带一路战略
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis hic repellat incidunt quaerat veritatis soluta sequi. Tempore hic eaque distinctio consequatur accusamus ipsa recusandae magnam saepe animi praesentium molestiae est.
+							</div>
+							
+									
+							<div class="reader-opration" id="reader_opration" style="display: none;">
+							<!--	::before-->
+								<!--<div class="top-sj"></div>-->
+								<div class="op-content">
+									<div class="top-sj"></div>
+									<ul class="light-list" id="hightLightColor" style="display: none;">
+										<li class="light-item" data-color="high-light-blue"></li>
+										<li class="light-item" data-color="high-light-purple"></li>
+										<li class="light-item" data-color="high-light-green"></li>
+										<li class="light-item" data-color="high-light-yellow"></li>
+										<li class="light-item" data-color="high-light-red"></li>
+									</ul>
+									<ul class="opul">
+										<li class="opli" id="setCopy">复制</li>
+										<li class="opli" id="setHighlight">高亮</li>
+										<li class="opli" id="setUnderline">下划线</li>
+										<li class="opli" id="markingDown">写批注</li>
+										<li class="opli" id="Question">提问</li>
+										<li class="opli" id="share">分享</li>
+									</ul>
+								</div>
+								
+							</div>
+							<!--写批注的-->
+							<div class="marking-edit hide" id="markingBox">
+								<div class="edit-sub">
+									<div class="close-btn-line">
+										<div class="close-btn-txt">写批注</div>
+										<div class="close-btn"></div>
+									</div>
+									<div class="edit-box">
+										<textarea name="" rows="" cols="" placeholder="写批注..."></textarea>
+									</div>
+									<div class="interact">
+										<div class="send-radio radio-selected">发表到交流区</div>
+										<div class="sure-btn disable">确定</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							<!--提问题-->
+							<div class="question-edit hide" id="questionBox">
+								<div class="eidt-sub">
+									<div class="close-btn-line">
+										<div class="close-btn-txt">写问题</div>
+										<div class="close-btn"></div>
+									</div>
+									<div class="edit-box">
+										<textarea name="" rows="" cols="" placeholder="写问题..."></textarea>
+									</div>
+									<div class="interact">
+										<div class="sure-btn disable">确定</div>
+									</div>
+								</div>
+								
+								
+							</div>
+							<!--画图形的弹框-->
+							<div class="Graphic-editing-alert" style="top: 80px;left: 100px;">
+								<div class="op-content">
+									<div class="top-sj"></div>
+									<ul class="light-list" >
+										<li class="light-item" data-color="high-light-blue"></li>
+										<li class="light-item" data-color="high-light-purple"></li>
+										<li class="light-item" data-color="high-light-green"></li>
+										<li class="light-item" data-color="high-light-yellow"></li>
+										<li class="light-item" data-color="high-light-red"></li>
+									</ul>
+									<div class="bottom-line">
+										<ul class="bottom-line-size">
+											<li class="line-item sel" data-size="3"></li>
+											<li class="line-item" data-size="5"></li>
+											<li class="line-item" data-size="7"></li>
+										</ul>
+										<ul class="bottom-line-op">
+											<li class="opli" >删除</li>
+											<li class="opli" >写批注</li>
+										</ul>
+									</div>
+									
+								</div>
+								
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				
+			
+			</div>
+	
+			<!--分享弹框-->
+			<div class="share-platform-box" id="sharePlatformBox" style="display: none;">
+				<div class="share-platform-sub">
+					<div class="close-btn-line">
+						<div class="close-btn"></div>
+					</div>
+					<div class="share-til">分享至</div>
+					<ul class="paltform-list">
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">微信好友</div>
+						</li>
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">QQ好友</div>
+						</li>
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">QQ空间</div>
+						</li>
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">微博</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--复制成功弹框-->
+			<!--打印弹框-->
+			<div class="print-alert hide">
+				<div class="print-alert-til">打印</div>
+				<div class="print-content">
+					<div class="print-line">
+						<div class="print-lable">打印机：</div>
+						<div class="print-box">
+							<div class="print-machine">
+								<span>惠普打印机1</span>
+								<div class="machine-box hide">
+									<ul class="machine-list">
+										<li class="machine-item machine-selected">惠普打印机1</li>
+										<li class="machine-item">惠普打印机2</li>
+										<li class="machine-item">惠普打印机3</li>
+										<li class="machine-item">惠普打印机1</li>
+										<li class="machine-item">惠普打印机2</li>
+										<li class="machine-item">惠普打印机3</li>
+										<li class="machine-item">惠普打印机1</li>
+										<li class="machine-item">惠普打印机2</li>
+										<li class="machine-item">惠普打印机3</li>
+										<li class="machine-item">惠普打印机1</li>
+										<li class="machine-item">惠普打印机2</li>
+										<li class="machine-item">惠普打印机3</li>
+									</ul>
+									<div class="print-other">添加打印机</div>
+								</div>
+							</div>
+							
+							
+						</div>
+					</div>
+					<div class="print-line">
+						<div class="print-lable">份数：</div>
+						<div class="print-box">
+							<div class="box-line">
+								<div class="copies-num"><input type="text" name="" id="" value="" /></div>
+								<div class="print-type">
+									<input type="checkbox" name="" id="" value="" />
+									<span></span>
+									<label for="">双面打印</label>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="print-ohter-line hide">
+						<div class="print-line">
+							<div class="print-lable">页数：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="pageNmber-radio-all">
+										<input type="radio" name="printPage" id="" value="" checked="checked"/>
+										<span></span>
+										<div class="radio-cotent">全部</div>
+									</div>
+								</div>
+								<div class="box-line">
+									<div class="pageNmber-radio-all">
+										<input type="radio" name="printPage" id="" value="" />
+										<span></span>
+										<div class="radio-cotent">
+											<label for="">从：</label>
+											<div class="num-input"><input type="text" name="" id="" value="" /></div>
+											<label for="">&nbsp;&nbsp;至：</label>
+											<div class="num-input"><input type="text" name="" id="" value="" /></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="print-line">
+							<div class="print-lable">纸张大小：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="print-paper">
+										<span>A4</span>
+										<ul class="paper-list hide">
+											<li class="paper-item paper-selected">A4</li>
+											<li class="paper-item">A3</li>
+											<li class="paper-item">A1</li>
+											<li class="paper-item">A4</li>
+											<li class="paper-item">A3</li>
+											<li class="paper-item">A1</li>
+											<li class="paper-item">A4</li>
+											<li class="paper-item">A3</li>
+											<li class="paper-item">A1</li>
+											<li class="paper-item">A4</li>
+											<li class="paper-item">A3</li>
+											<li class="paper-item">A1</li>
+										</ul>
+									</div>
+									<div class="paper-size"></div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="print-line">
+							<div class="print-lable">打印方向：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="print-direction">
+										<input type="radio" name="direction" id="" value="" />
+										<span></span>
+										<label for="">纵向</label>
+									</div>
+									<div class="print-direction">
+										<input type="radio" name="direction" id="" value="" />
+										<span></span>
+										<label for="">横向</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="print-line">
+							<div class="print-lable">页边距：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="direction-dis">
+										<div class="direction">上</div>
+										<div class="dis-input">
+											<input type="text" name="" id="" value="" />
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+									<div class="direction-dis">
+										<div class="direction">下</div>
+										<div class="dis-input">
+											<input type="text" name="" id="" value="" />
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+								</div>
+								<div class="box-line">
+									<div class="direction-dis">
+										<div class="direction">左</div>
+										<div class="dis-input">
+											<input type="text" name="" id="" value="" />
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+									<div class="direction-dis">
+										<div class="direction">右</div>
+										<div class="dis-input">
+											<input type="text" name="" id="" value="" />
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="print-line">
+							<div class="print-lable">打印质量：</div>
+							<div class="print-box">
+								<div class="print-quality">
+									<span>惠普打印机1</span>
+									<ul class="quality-list hide">
+										<li class="quality-item quality-selected">质量1</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+										<li class="quality-item">质量2</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+				
+					</div>
+					
+				</div>
+				<div class="print-bottom">
+					<div class="print-content-control">显示详细信息</div>
+					<div class="print-btn-list">
+						<div class="print-cancel-btn">取消</div>
+						<div class="print-sure-btn">确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--复制弹框-->
+		<div class="copy-alert" id="copy-alert" style="display: none;"> <div class="copy-bg"></div>已复制 </div>
+		<!--标注删除弹框-->
+		<div class="marking-delete-alert hide">
+			<div class="delete-alert-sub">
+				<div class="delete-alert-close"></div>
+				<p class="delete-tip">确定删除该标注？</p>
+				<div class="marking-btn-list">
+					<div class="cancel-del-btn">取消</div>
+					<div class="sure-del-btn">确定</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.7.2.js"></script>
+		<!--左侧目录树形结构插件-->
+		<script src="js/jquery.ztree.core.js"></script>
+		<!--滑块相关插件-->
+		<script src="js/wNumb.js"></script>
+		<script src="js/nouislider.js"></script>
+		<!--选区内容-->
+		<script type="text/javascript" src="js/rangy/rangy-core.js"></script>
+		<script type="text/javascript" src="js/rangy/rangy-serializer.js"></script>
+		<script type="text/javascript" src="js/rangy/rangy-selectionsaverestore.js"></script>
+	    <script type="text/javascript" src="js/rangy/rangy-classapplier.js"></script>
+    	<script type="text/javascript" src="js/rangy/rangy-highlighter.js"></script>
+		<script type="text/javascript" src="js/rangy/rangy-position.js"></script>
+
+		<!--粘贴复制-->
+		<script type="text/javascript" src="js/clipboard.min.js"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+		<script src="js/cajReader.js"></script>
+		<script type="text/javascript">
+		
+		</script>
+	</body>
+</html>

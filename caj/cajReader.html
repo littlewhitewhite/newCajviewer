@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/cajReader.css"/>
+		<link rel="stylesheet" type="text/css" href="css/pdf_viewer.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			.no-titlebar .ui-dialog-titlebar {
+			display: none;
+		}
+
+		.no-titlebar .ui-widget-content {
+			border: 0px solid #333232;
+			background: transparent;
+			
+			font-size: 11pt;
+		} 
+		.ui-widget-overlay {
+			background: #3d3d3d;
+			opacity: .01;
+		}
+		.ui-widget-content.ui-dialog.no-titlebar {
+			border: 0px solid red;
+			padding: 0em;
+		}
+	 #printing_progress_text{
+			   height: 30px;
+			   display: table-cell;
+	   vertical-align: middle;
+	   font-size: 12pt;
+		   }
+
+		   .ui-widget-content.ui-dialog.topmost
+		   {
+			   z-index: 20000;
+	 }
+	 .no-close .ui-dialog-titlebar-close {
+			   display: none;
+		   } 
+		   /* #msg-text{
+			   height: 30px;
+			   display: table-cell;
+			   vertical-align: middle;
+		   }  */
+   </style>
+		<title></title>
+	</head>
+	
+	<body>
+		<div class="entire" id="entire-content">
+			<!-- <div class="read-til">农业机械投入对化肥减量化的作用研究</div> -->
+			<div class="one-level">
+	<div class="one-left" ,="" id="left-sidebar">
+					<div class="one-left-btn" id="left-sidebar-btn"></div>
+					<!--目录-->
+					<div class="directory-module">
+						<div class="directory-top">目录</div>
+						<div class="ztree" id="naviTree"></div>
+					</div>
+				</div>
+				<div class="one-right" id="right-sidebar">
+					<div class="one-right-btn" id="right-sidebar-btn"></div>
+					<!--标注-->
+					<div class="marking-moudle">
+						<div class="marking-top">标注</div>
+						<div class="button-line">
+							<div class="marking-number" id="note-count"></div>
+							<div class="marking-control-btn" id="note-export">导出</div>
+							<div class="order-select">
+								<span id="order-by-paragraph">按段落</span>
+								&nbsp;&nbsp;|&nbsp;&nbsp;
+								<span id="order-by-time">按时间</span>
+							</div>
+						</div>
+						<!--标注列表-->
+						<ul class="marking-list sc1" id="note-list">
+							
+						</ul>
+						<!--标注内容为空的时候显示-->
+						<div class="empty-tip-block" id="empty-tip-block-note">
+							<div class="empty-pic marking-empty-pic"></div>
+							<div class="empty-tip">暂无标注，快去添加标注吧</div>
+						</div>
+					</div>
+				</div>
+				<div class="center-content" id="center-content">
+					<div class="top-function" id="top-function">
+						<div class="top-function-line" id="top-sidebar">
+							<div class="left-area">
+								<div class="size-btn-item" id="size-btn-item">
+									<div class="size-down-btn"></div>
+									<div class="size-number-box">
+										<div class="size-number"><input type="text" name="" id="sizeInput" value="190%"></div>
+										<div class="number-select-btn"></div>
+									</div>
+									<div class="size-up-btn"></div>
+									<div class="size-number-select hide" id="size-number-select">
+										<div class="select-tip">
+											缩放
+										</div>
+										<ul class="select-number">
+											<li class="select-number-item number-selected" data-value="400">400%</li>
+											<li class="select-number-item" data-value="300">300%</li>
+											<li class="select-number-item" data-value="200">200%</li>
+											<li class="select-number-item" data-value="150">150%</li>
+											<li class="select-number-item" data-value="125">125%</li>
+											<li class="select-number-item" data-value="100">100%</li>
+											<li class="select-number-item" data-value="75">75%</li>
+											<li class="select-number-item" data-value="50">50%</li>
+											<li class="select-number-item" data-value="25">25%</li>
+											<li class="select-number-item" data-value="-1">实际大小</li>
+											<li class="select-number-item" data-value="-2">适应宽度</li>
+											<li class="select-number-item" data-value="-3">适应高度</li>
+										</ul>
+									</div>
+									
+								</div>
+								<div class="left-btn-item" id="print">
+									<div class="print-btn"></div>
+								</div>
+								<div class="left-btn-item" id="searchControl">
+									<div class="search-btn-icon" title="文内搜索"></div>
+								</div>
+
+							</div>
+							<div class="center-progress">
+								<div class="progress-left-arrow" title="上一页"></div>
+								<div class="progress-number">
+									<div class="page-input"><input type="text" onclick="this.select();" name="" id="current-page" value="21"></div><div class="page-count">&nbsp;/&nbsp;<span id="page-count">25</span></div>
+								</div>
+								<div class="progress-right-arrow" title="下一页"></div>
+							</div>
+							<div class="right-area">
+								<div class="right-btn-item" id="forum">
+									<div class="exchange-btn">交流区</div>
+								</div>
+								
+								<div class="right-btn-item ">
+									<div class="add-mark-btn" title="添加/删除书签"></div>
+								</div>
+								<div class="right-btn-item">
+									<div class="show-hide-note-btn" title="显示/隐藏所有标注"></div>
+								</div>
+							</div>
+							<div class="fixed-btn"></div>
+						</div>
+						<div class="mouse-area"></div>
+						
+					</div>
+					<!--搜索模块-->
+					<div class="search-moudle search-hide">
+						<div class="search-box">
+							<div class="input-box">
+								<input type="text" name="" value="" id="caj-search-keyword">
+							</div>
+							<div class="search-btn disable"></div>
+						</div>
+						<div class="container hide" id="search-progressbar">
+							<div class="progress progress-infinite">
+							  <div class="progress-bar3">
+							  </div>                       
+							</div> 
+						  </div>
+						<div class="search-result">
+							<ul class="search-list" id="caj-search-list">
+								
+							</ul>
+						</div>
+						<!--标注为空时候的页面显示-->
+						<div class="empty-tip-block hide" id="empty-tip-block-search">
+							<div class="empty-pic search-empty-pic"></div>
+							<div class="empty-tip">没有找到相关内容，换个词试试吧</div>
+						</div>
+					</div>
+					<!--交流区-->
+					
+					
+					<div class="content-box" id="content-box">
+						<div class="content-sub">
+							<div id="viewerContainer" tabindex="0">
+								<div id="viewer" class="pdfViewer">							  
+								</div>
+							<div class="tip-alert relative-center read-copy-bg" id="copy-alert" style="display: none;">已复制 </div>
+							<div class="reader-opration" id="reader_opration" style="display: none;">
+								<div class="op-content">
+									<div class="top-sj"></div>
+									<ul class="light-list" id="color-toolbar" style="display: none;">
+										<li class="light-item" data-color="high-light-blue"></li>
+										<li class="light-item" data-color="high-light-purple"></li>
+										<li class="light-item" data-color="high-light-green"></li>
+										<li class="light-item" data-color="high-light-yellow"></li>
+										<li class="light-item" data-color="high-light-red"></li>
+									</ul>
+									<ul class="opul-note" id="note-toolbar">
+										<li class="opli" id="note-delete">删除</li>
+										<li class="opli" id="setCopy">复制</li>
+										<li class="opli" id="markingDown1">写批注</li>
+										<li class="opli" id="Question1">提问</li>
+										<!-- <li class="opli" id="share">分享</li> -->
+									</ul>
+									<ul class="opul" id="text-toolbar">
+										<li class="opli" id="setCopy">复制</li>
+										<li class="opli" id="setHighlight">高亮</li>
+										<li class="opli" id="setUnderline">下划线</li>
+										<li class="opli" id="markingDown">写批注</li>
+										<li class="opli" id="Question">提问</li>
+										<!-- <li class="opli" id="share">分享</li> -->
+									</ul>
+									<div class="bottom-line" id="note-toolbar1">
+										<ul class="bottom-line-size">
+											<li class="line-item" data-size="1"></li>
+											<li class="line-item" data-size="3"></li>
+											<li class="line-item" data-size="5"></li>
+										</ul>
+										<ul class="bottom-line-op">
+											<li class="opli" id="note-delete">删除</li>
+											<li class="opli" id="markingDown1">写批注</li>
+										</ul>
+									</div>
+							
+									<div class="bottom-sj"></div>
+								</div>
+								
+							</div>
+							<!--写批注的-->
+							<div class="marking-edit hide" id="note-dialog">
+								<div class="edit-sub">
+									<div class="edit-box">
+										<textarea id="note-annot" name="" rows="" cols="" placeholder="写批注..."></textarea>
+									</div>
+									<div class="interact">
+										<span id="note-dialog-dummy" class="hide"></span>
+										<div class="send-radio radio-selected" id="note-send-to">发表到交流区</div>
+										<div class="sure-btn disable" id="note-save-publish">发表</div>
+									</div>
+								</div>
+							</div>
+							<!--提问题-->
+							<div class="question-edit hide" id="question-dialog">
+								<div class="eidt-sub">
+									<div class="edit-box">
+										<textarea id="question-text" name="" rows="" cols="" placeholder="写问题..."></textarea>
+									</div>
+									<div class="interact">
+										<div class="sure-btn disable" id="question-publish">发表</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<!--分享弹框-->
+			<div class="share-platform-box" id="sharePlatformBox" style="display: none;">
+				<div class="share-platform-sub">
+					<div class="close-btn-line">
+						<div class="close-btn"></div>
+					</div>
+					<div class="share-til">分享至</div>
+					<ul class="paltform-list">
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">微信好友</div>
+						</li>
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">QQ好友</div>
+						</li>
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">QQ空间</div>
+						</li>
+						<li class="platform-item">
+							<div class="platform-icon"></div>
+							<div class="platform-txt">微博</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--复制成功弹框-->
+			<!--打印弹框-->
+			<div id="printDialog" style="display: none;">
+				<!-- <div class="print-alert-til">打印</div> -->
+				<div class="print-content">
+					<div class="print-line">
+						<div class="print-lable">打印机：</div>
+						<div class="print-box" id="printer-box">
+							<div class="print-machine">
+								<span id="selected-printer" class="single-line"></span>
+								<div class="machine-box hide" id="printer-list-box">
+									<ul class="machine-list" id="printer-list">
+										
+									</ul>
+									<!-- <div class="print-other">添加打印机</div> -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="print-line">
+						<div class="print-lable">份数：</div>
+						<div class="print-box">
+							<div class="box-line">
+								<div class="copies-num"><input type="number" min="1" max="5" name="" id="print-copies" value="1"></div>
+								<div class="print-type" id="print-type">
+									<input type="checkbox" name="" id="print-duplex" value="1">
+									<span></span>
+									<label for="print-duplex">双面打印</label>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="print-ohter-line hide">
+						<div class="print-line">
+							<div class="print-lable">页数：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="pageNmber-radio-all">
+										<input type="radio" name="print-page-range-radio" id="" value="0" checked="checked">
+										<span></span>
+										<div class="radio-cotent">全部</div>
+									</div>
+								</div>
+								<div class="box-line">
+									<div class="pageNmber-radio-all">
+										<input type="radio" name="print-page-range-radio" id="" value="1">
+										<span></span>
+										<div class="radio-cotent">
+											<label for="">从：</label>
+											<div class="num-input"><input type="number" name="" id="print-page-range-from" value="1" min="1"></div>
+											<label for="">&nbsp;&nbsp;至：</label>
+											<div class="num-input"><input type="number" name="" id="print-page-range-to" value="1" min="1"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="print-line">
+							<div class="print-lable">纸张大小：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="print-paper" id="paper-list-box">
+										<span id="selected-paper" class="single-line"></span>
+										<ul class="paper-list hide" id="paper-list">
+											
+										</ul>
+									</div>
+									<div class="paper-size"></div>
+								</div>
+								
+							</div>
+						</div>
+						<div class="print-line">
+							<div class="print-lable">打印方向：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="print-direction">
+										<input type="radio" name="print-direction-radio" id="orientation-portrait" value="0">
+										<span></span>
+										<label for="orientation-portrait">纵向</label>
+									</div>
+									<div class="print-direction">
+										<input type="radio" name="print-direction-radio" id="orientation-landscape" value="1">
+										<span></span>
+										<label for="orientation-landscape">横向</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="print-line">
+							<div class="print-lable">页边距：</div>
+							<div class="print-box">
+								<div class="box-line">
+									<div class="direction-dis">
+										<div class="direction">上</div>
+										<div class="dis-input">
+											<input type="number" min="0" max="50" name="" id="print-margin-top" value="10">
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+									<div class="direction-dis">
+										<div class="direction">下</div>
+										<div class="dis-input">
+											<input type="number" min="0" max="50" name="" id="print-margin-bottom" value="10">
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+								</div>
+								<div class="box-line">
+									<div class="direction-dis">
+										<div class="direction">左</div>
+										<div class="dis-input">
+											<input type="number" min="0" max="50" name="" id="print-margin-left" value="10">
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+									<div class="direction-dis">
+										<div class="direction">右</div>
+										<div class="dis-input">
+											<input type="number" min="0" max="50" name="" id="print-margin-right" value="10">
+										</div>
+										<div class="unit">毫米</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				
+					</div>
+					
+				</div>
+				<div class="print-bottom">
+					<input type="checkbox" name="" id="more-print-setting" value="1">
+					<span></span>
+					<label class="print-content-control" for="more-print-setting">显示更多设置</label>
+		
+					 <div class="print-btn-list">
+						
+						<div class="print-cancel-btn" id="print-dialog-cancel">取消</div>
+						<div class="print-sure-btn" id="print-dialog-print">打印</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		
+		
+		<div id="waitingDialog" style="display: none;">
+			<div class="loading-tip">
+				<span class="ouro ouro3">
+					<span class="left"><span class="anim"></span></span>
+					<span class="right"><span class="anim"></span></span>
+				  </span>
+				<div class="loading-txt" id="msg-text">
+					
+				</div>
+			</div>
+		</div>
+		<div id="promptDialog" title="提示" style="display: none;">
+			<div class="toast-alert">
+				<div class="toast-content">
+					<div class="toast-close"></div>
+					<div class="toast-til" id="prompt-title"></div>
+					<div class="toast-tip" id="prompt-text">
+					</div>
+					<div class="toast-btn">
+						<div class="toast-cancel" id="negative-btn">取消</div>
+						<div class="toast-sure" id="positive-btn"> 确定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyContainer" style="display: none;"></div>
+		<div class="tip-alert fixed-center" id="toast" style="display: none;"></div>
+		<script src="./WebCajviewer.js"></script>
+</body>
+</html>

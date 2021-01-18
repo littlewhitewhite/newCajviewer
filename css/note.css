@@ -1,0 +1,13 @@
+#note_text {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+   font-size: 11pt;
+   color: rgb(169, 169, 169);
+}
+#note_annot {
+   width: 100%;
+   resize: none;
+}
