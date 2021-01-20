@@ -120,19 +120,20 @@ function setNavigationTree(naviTree)
 }
 
 let i = 0, levelIndex = 0;
+let parent = document.getElementById('naviTree');
+
 function createLevels(directory, index)
 {
-	let parent = document.getElementById('naviTree');
 	
 	let text = directory.name;
 	let page = directory.dest.page;
+	
 	let oli = document.createElement('li');
 	oli.setAttribute('id', i++);
 	oli.setAttribute('class', 'level' + levelIndex);
 	
 	let ospan = document.createElement('span');
 	ospan.setAttribute('id', 'naviTree_' + levelIndex + '_switch');
-	ospan.setAttribute('class', 'button noline-oclose');
 	
 	let oa = document.createElement('a');
 	oa.setAttribute('id', 'naviTree_' + levelIndex + '_a');
@@ -141,28 +142,31 @@ function createLevels(directory, index)
 	
 	let oaSpan = document.createElement('span');
 	ospan.setAttribute('id', 'naviTree_' + levelIndex + '_switch');
-	ospan.setAttribute('class', 'button noline-oclose');
 	oaSpan.innerHTML = text;
 	
 	oli.appendChild(ospan);
 	oli.appendChild(oa);
 	oa.appendChild(oaSpan);
+		
+	parent.appendChild(oli);
 	
 	if(directory.childs) {
-		// create ul
 		let oul = document.createElement('ul');
-		oli.appendChild(oul);         
-		parent = oul;
-		directory.childs.forEach(createLevels);
+		oul.style.display = 'none';
+		oli.appendChild(oul);
+		
+		ospan.setAttribute('class', 'button noline_close');		// set class ospan to noline_close
+		ospan.onclick = function () { 
+			let dirState =  ospan.getAttribute('class');
+			oul.getAttribute("display") == "none" ? "block" : "none";
+			console.log(dirState);
+		};
+		
+		directory.childs.map(createLevels).forEach((element) => {oul.appendChild(element);}); // then recursive call 
 	} else {
-		parent.appendChild(oli);
-	}
-	/*
-	if(directory.childs) {
-		let oul = document.createElement('ul');
-		oul.appendChild(directory.childs.map(createLevels));
-	}
-	*/
+		ospan.setAttribute('class', 'button noline_docu');
+	}		
+	
 	return oli;
 }
 
