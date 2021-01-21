@@ -94,6 +94,8 @@
 	cataInfo : 'data/text/catalog.json'
 };
 
+let currentSelectedDir = '';
+
 function getCatalog()
 {
 	let requestURL = book.cataInfo;
@@ -107,47 +109,63 @@ function getCatalog()
     console.log("catalog end");
 }
 
-function turnToPage(page)
+function turnToPage(oa, page)
 {
+	//console.log(oa.id + page);
+	if(currentSelectedDir){
+		let tmp = document.getElementById(currentSelectedDir);
+	tmp.classList.remove('curSelectedNode');}
+	oa.classList.add('curSelectedNode');	// highlight selected directory
+	currentSelectedDir = oa.id;
 	
+	// jump to @page
 }
 
 function setNavigationTree(naviTree)
 {
+	let oleftSidebarBtn = document.getElementById('left-sidebar-btn');
+	let oleftSidebar = document.getElementById('left-sidebar');
+	
+	// click sidebar hide/display
+	oleftSidebarBtn.onclick = function() {
+		this.classList.toggle('left-open');
+		oleftSidebar.classList.toggle('one-left-hide');
+	}
+	
 	if(naviTree) {
 		naviTree.forEach(createLevels);
 	}
 }
 
-let i = 0, levelIndex = 0;
-let parent = document.getElementById('naviTree');
+let dirSeq = 0, levelIndex = 0;
 
-function createLevels(directory, index)
+function createLevels(directory)
 {
-	
+	dirSeq++;
+	let parent = document.getElementById('naviTree');
 	let text = directory.name;
 	let page = directory.dest.page;
-	
 	let oli = document.createElement('li');
-	oli.setAttribute('id', i++);
+	oli.setAttribute('id', dirSeq);
 	oli.setAttribute('class', 'level' + levelIndex);
 	
 	let ospan = document.createElement('span');
-	ospan.setAttribute('id', 'naviTree_' + levelIndex + '_switch');
+	ospan.setAttribute('id', 'naviTree_' + dirSeq + '_switch');
+	ospan.setAttribute('class', 'button noline-close');
 	
 	let oa = document.createElement('a');
-	oa.setAttribute('id', 'naviTree_' + levelIndex + '_a');
-	ospan.setAttribute('class', '');
-	oa.onclick = turnToPage(page);
+	oa.setAttribute('id', 'naviTree_' + dirSeq + '_a');
+	oa.onclick = function() { turnToPage(this, page); }
+
 	
 	let oaSpan = document.createElement('span');
-	ospan.setAttribute('id', 'naviTree_' + levelIndex + '_switch');
+	ospan.setAttribute('id', 'naviTree_' + dirSeq + '_switch');
 	oaSpan.innerHTML = text;
 	
 	oli.appendChild(ospan);
 	oli.appendChild(oa);
 	oa.appendChild(oaSpan);
-		
+	
 	parent.appendChild(oli);
 	
 	if(directory.childs) {
@@ -156,10 +174,11 @@ function createLevels(directory, index)
 		oli.appendChild(oul);
 		
 		ospan.setAttribute('class', 'button noline_close');		// set class ospan to noline_close
+		
 		ospan.onclick = function () { 
-			let dirState =  ospan.getAttribute('class');
-			oul.getAttribute("display") == "none" ? "block" : "none";
-			console.log(dirState);
+			this.classList.toggle('noline_close');
+			this.classList.toggle('noline_open');
+			oul.style.display = ((oul.style.display == 'none') ? 'block' : 'none');
 		};
 		
 		directory.childs.map(createLevels).forEach((element) => {oul.appendChild(element);}); // then recursive call 
